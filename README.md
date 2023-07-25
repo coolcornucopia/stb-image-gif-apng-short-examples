@@ -1,5 +1,9 @@
-# stb-image-gif-apng-short-examples :sunrise_over_mountains::film_projector:
-This repo contains short source code examples in C language using the awesone [stb image](https://github.com/nothings/stb/blob/master/stb_image.h):thumbsup: for decoding animated GIF & PNG (APNG) image files. [stb image](https://github.com/nothings/stb/blob/master/stb_image.h) is part of the great [stb library](https://github.com/nothings/stb):star_struck: from [nothings](https://github.com/nothings). Enjoy!
+# stb image gif & apng short examples :sunrise_over_mountains: :film_projector:
+This repo contains short source code examples in C language using the awesone [stb image](https://github.com/nothings/stb/blob/master/stb_image.h) :thumbsup: for decoding animated GIF & PNG image files.
+
+[stb image](https://github.com/nothings/stb/blob/master/stb_image.h) is part of the great [stb library](https://github.com/nothings/stb) :star_struck: from [nothings](https://github.com/nothings).
+
+Enjoy!
 
 ---
 
