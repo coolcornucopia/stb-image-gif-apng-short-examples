@@ -7,14 +7,21 @@ APP1 = stb_image_png_example
 APP2 = stb_image_gif_example
 
 CC ?= gcc
-CFLAGS += -Wall -Os
-CFLAGS += -DDEBUG
-#CFLAGS += -DLOG_LONG_INFO
+CFLAGS += -Wall
+
+release: CFLAGS += -Os
+
+# Note: -g is required for debugging step by step with gdb
+debug: CFLAGS += -DDEBUG -g
+#debug: CFLAGS += -DLOG_LONG_INFO
+
 LIBS = $(shell pkg-config --cflags --libs sdl2) -lm
 
-all: create_obj_dir $(APP1) $(APP2)
+all: prepare $(APP1) $(APP2)
+debug: all
+release: all
 
-create_obj_dir:
+prepare:
 	@mkdir -p $(OBJ_DIR)
 
 $(APP1):
