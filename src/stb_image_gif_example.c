@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 					break;
 			}
 		} else
-			SDL_Delay(100); /* Short delay, avoiding consuming cpu for nothing */
+			SDL_Delay(1000/25); /* Short delay, avoiding consuming cpu for nothing */
 	}
 
 	SDL_DestroyRenderer(renderer);
