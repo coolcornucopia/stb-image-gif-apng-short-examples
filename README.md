@@ -24,10 +24,13 @@ Enjoy!
 ```bash
 # Get latest stb_image.h from https://github.com/nothings/stb
 wget https://raw.githubusercontent.com/nothings/stb/master/stb_image.h -O src/stb_image.h -q
+
 # Download a nice animated gif with transparency
 # Credit: Wikipedia, License: Creative Commons Attribution-Share Alike 4.0 International
 wget https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia_logo_puzzle_globe_spins_horizontally_and_vertically%2C_revealing_the_contents_of_all_of_its_puzzle_pieces%2C_without_background.gif -O wikipedia.gif -q
-make clean all
+
+# Build in release (use "make debug" for step by step debug)
+make clean release
 build/stb_image_gif_example wikipedia.gif
 ```
 
