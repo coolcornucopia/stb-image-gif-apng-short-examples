@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 	win_h = img_h;
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_CreateWindowAndRenderer(win_w, win_h, 0, &window, &renderer);
-	win_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888,
+	win_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ABGR8888,
 			SDL_TEXTUREACCESS_STREAMING, win_w, win_h);
 
 	int y, frames;
