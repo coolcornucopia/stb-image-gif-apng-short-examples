@@ -15,6 +15,7 @@ Enjoy!
 
 - [TL;DR](#tldr)
 - [Animated GIF short example](#animated-gif-short-example)
+- [Animated PNG short example (APNG)](#animated-png-short-example-apng)
 - [Any questions or comments are welcome :bird:](#any-questions-or-comments-are-welcome-bird)
 
 <!-- /code_chunk_output -->
@@ -54,9 +55,23 @@ build/stb_image_gif_example wikipedia_rotating_earth_transparent.gif
 ```
 
 
+## Animated PNG short example (APNG)
+**IMPORTANT** [stb image](https://github.com/nothings/stb/blob/master/stb_image.h) does not support animated png (apng). I thought apng was supported after the read of the [jcredmond/stb_image-apng.c](https://gist.github.com/jcredmond/9ef711b406e42a250daa3797ce96fd26) gist but this code requires a patch on top of stb image. You may use instead several png files. Ie, in the [stb_image_png_example.c](https://github.com/coolcornucopia/stb-image-gif-apng-short-examples/blob/main/src/stb_image_png_example.c), only the first png frame will be decoded and displayed.
+
+To build and test this example, use following instructions:
+```bash
+# Get latest stb_image.h from https://github.com/nothings/stb
+wget https://raw.githubusercontent.com/nothings/stb/master/stb_image.h -O src/stb_image.h -q
+
+# Download nice animated png with transparency
+# From https://commons.wikimedia.org/wiki/File:Animated_PNG_example_bouncing_beach_ball.png
+# Credit: Holger Will, License: Public domain
+wget https://upload.wikimedia.org/wikipedia/commons/1/14/Animated_PNG_example_bouncing_beach_ball.png -O wikipedia_bouncing_beach_ball.png -q
+
+
 # Build in release (use "make debug" for step by step debug)
 make clean release
-build/stb_image_gif_example wikipedia.gif
+build/stb_image_png_example wikipedia_bouncing_beach_ball.png
 ```
 
 ## Any questions or comments are welcome :bird:
