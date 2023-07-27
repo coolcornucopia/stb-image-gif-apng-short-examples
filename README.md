@@ -31,14 +31,28 @@ Enjoy!
 Despite above comments, I really like the awesome [stb library](https://github.com/nothings/stb):smile:.
 
 ## Animated GIF short example
+[stb image](https://github.com/nothings/stb/blob/master/stb_image.h) is easy to use for decoding an animated gif. After reading the entire gif file in a memory buffer (fopen/fread/fclose for instance, see [src/helpers.c](https://github.com/coolcornucopia/stb-image-gif-apng-short-examples/blob/main/src/helpers.c#L8)), give this buffer to the stbi function ***stbi_load_gif_from_memory()*** that will return a buffer containing on uncompressed gif (see [stb_image_gif_example.c](https://github.com/coolcornucopia/stb-image-gif-apng-short-examples/blob/main/src/stb_image_gif_example.c#L37)).
+
+To build and test this example, use following instructions:
 
 ```bash
 # Get latest stb_image.h from https://github.com/nothings/stb
 wget https://raw.githubusercontent.com/nothings/stb/master/stb_image.h -O src/stb_image.h -q
 
-# Download a nice animated gif with transparency
+# Download nice animated gif with transparency
+# From https://commons.wikimedia.org/wiki/File:Wikipedia_logo_puzzle_globe_spins_horizontally_and_vertically,_revealing_the_contents_of_all_of_its_puzzle_pieces,_without_background.gif
 # Credit: Wikipedia, License: Creative Commons Attribution-Share Alike 4.0 International
-wget https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia_logo_puzzle_globe_spins_horizontally_and_vertically%2C_revealing_the_contents_of_all_of_its_puzzle_pieces%2C_without_background.gif -O wikipedia.gif -q
+wget https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia_logo_puzzle_globe_spins_horizontally_and_vertically%2C_revealing_the_contents_of_all_of_its_puzzle_pieces%2C_without_background.gif -O wikipedia_logo_puzzle_globe_without_background.gif -q
+# From https://commons.wikimedia.org/wiki/File:Rotating_earth_(large)_transparent.gif
+# Credit: Wikipedia, License: Creative Commons Attribution-Share Alike 3.0 International
+wget https://upload.wikimedia.org/wikipedia/commons/a/a9/Rotating_earth_%28large%29_transparent.gif -O wikipedia_rotating_earth_transparent.gif  -q
+
+# Build in release (use "make debug" for step by step debug)
+make clean release
+build/stb_image_gif_example wikipedia_logo_puzzle_globe_without_background.gif
+build/stb_image_gif_example wikipedia_rotating_earth_transparent.gif
+```
+
 
 # Build in release (use "make debug" for step by step debug)
 make clean release
