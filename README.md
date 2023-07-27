@@ -13,11 +13,22 @@ Enjoy!
 
 <!-- code_chunk_output -->
 
+- [TL;DR](#tldr)
 - [Animated GIF short example](#animated-gif-short-example)
 - [Any questions or comments are welcome :bird:](#any-questions-or-comments-are-welcome-bird)
 
 <!-- /code_chunk_output -->
 
+## TL;DR
+* **gif** I did not find a way for decoding animated gif **frame by frame** with [stb image](https://github.com/nothings/stb/blob/master/stb_image.h), that is an issue for big animated gif (too long time before displaying the first frame + too much memory consumption).
+* **apng** [stb image](https://github.com/nothings/stb/blob/master/stb_image.h) does not support animated png (apng). I thought apng was supported after the read of the [jcredmond/stb_image-apng.c](https://gist.github.com/jcredmond/9ef711b406e42a250daa3797ce96fd26) gist but this code requires a patch on top of stb image. You may use instead several png files.
+* **mjpeg** [stb image](https://github.com/nothings/stb/blob/master/stb_image.h) does not support mjpeg. You may use instead several jpeg files or search inside your mjpeg buffer each jpeg EOI before calling the decoder (idea from [Creating a Videoplayer for ESP32](https://www.appelsiini.net/2020/esp32-mjpeg-video-player/)).
+* **gif** If you encounter a "segmentation fault" with a given gif, you can re-encode it with gifsicle (see [stb image issue 1504](https://github.com/nothings/stb/issues/1504) for details).
+  ```bash
+  gifsicle -O3 gif_creating_seg_fault_with_stb_image.gif -o gif_ok_with_stb_image.gif
+  ```
+
+Despite above comments, I really like the awesome [stb library](https://github.com/nothings/stb):smile:.
 
 ## Animated GIF short example
 
